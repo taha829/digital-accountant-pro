@@ -19,13 +19,14 @@ const Layout = ({ children }: LayoutProps) => {
       <SidebarProvider defaultOpen={true}>
         <div className={`${language === "ar" ? "rtl" : "ltr"} min-h-screen flex w-full`}>
 
-          {/* Sidebar for desktop */}
-          <div className="hidden lg:block w-64">
+          {/* Sidebar — MUST remain inside SidebarProvider */}
+          <div className="hidden lg:flex">
             <AppSidebar />
           </div>
 
           {/* Main Content */}
           <div className="flex-1 flex flex-col w-full">
+
             {/* Navigation */}
             <Navigation language={language} setLanguage={setLanguage} />
 
@@ -129,6 +130,7 @@ const Layout = ({ children }: LayoutProps) => {
                 </div>
               </div>
             </footer>
+
           </div>
         </div>
       </SidebarProvider>
